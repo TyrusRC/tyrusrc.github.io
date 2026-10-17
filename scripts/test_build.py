@@ -12,6 +12,7 @@ def test_visible_fails_closed_on_private_forks_and_self():
         {"name": "internal", "private": False, "visibility": "internal", "fork": False},
         {"name": "forked", "private": False, "visibility": "public", "fork": True},
         {"name": "TyrusRC.github.io", "private": False, "visibility": "public", "fork": False},
+        {"name": "TyrusRC", "private": False, "visibility": "public", "fork": False},
     ]
     assert [r["name"] for r in model.visible(repos, "tyrusrc")] == ["ok"]
 

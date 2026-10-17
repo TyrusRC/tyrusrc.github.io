@@ -6,13 +6,13 @@ OTHER = {"slug": "other", "repos": [], "collapsed": False}
 
 
 def visible(repos, user):
-    """Public, non-fork repos, minus this site itself. Fails closed on anything not explicitly public."""
-    site = f"{user}.github.io".lower()
+    """Public, non-fork repos, minus this site and the profile-README repo. Fails closed on anything not explicitly public."""
+    meta = {f"{user}.github.io".lower(), user.lower()}
     return [r for r in repos
             if r.get("private") is False
             and r.get("visibility", "public") == "public"
             and not r.get("fork")
-            and r["name"].lower() != site]
+            and r["name"].lower() not in meta]
 
 
 def group(repos, categories):
