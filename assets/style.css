@@ -1,0 +1,107 @@
+:root {
+  --bg: #0b0f0c;
+  --bg-2: #080b09;
+  --fg: #c8f7d0;
+  --dim: #6f9a76;
+  --acc: #39ff88;
+  --line: #1f3a26;
+  --tag: #123019;
+  --warn: #ffb347;
+  --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+* { box-sizing: border-box; }
+html { color-scheme: dark; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 15px/1.6 var(--mono);
+  display: grid;
+  grid-template-columns: 17rem minmax(0, 1fr);
+  min-height: 100vh;
+}
+a { color: var(--acc); text-decoration: none; }
+a:hover, a:focus-visible { text-decoration: underline; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.dim { color: var(--dim); }
+.acc { color: var(--acc); }
+hr { border: 0; border-top: 1px solid var(--line); margin: 1.5rem 0; }
+h1 { font-size: 1.5rem; margin: .25rem 0; font-weight: 600; }
+
+/* sidebar */
+#side {
+  background: var(--bg-2);
+  border-right: 1px solid var(--line);
+  padding: 1.25rem 1rem;
+  position: sticky; top: 0;
+  height: 100vh; overflow-y: auto;
+  font-size: 13px;
+}
+#side .brand { font-size: 15px; display: block; margin-bottom: .75rem; }
+#side h2, #side summary { font-size: 13px; font-weight: normal; color: var(--dim); margin: 1rem 0 .25rem; cursor: default; }
+#side summary { cursor: pointer; }
+#side ul { list-style: none; margin: 0; padding: 0; }
+#side li a { display: block; padding: .1rem .5rem; border-radius: 3px; color: var(--fg); overflow-wrap: anywhere; }
+#side li a.on { background: var(--tag); color: var(--acc); }
+#search {
+  width: 100%; background: var(--bg); color: var(--fg); font: inherit;
+  border: 1px solid var(--line); border-radius: 3px; padding: .35rem .5rem;
+}
+#menu {
+  font: inherit; background: var(--bg-2); color: var(--acc);
+  border: 1px solid var(--line); border-radius: 3px; padding: .4rem .75rem;
+}
+
+main { padding: 2rem 2.5rem 4rem; max-width: 60rem; }
+.prompt { color: var(--dim); margin: 2rem 0 .5rem; }
+.prompt:first-child { margin-top: 0; }
+
+.who { display: flex; gap: 1.25rem; align-items: center; margin-bottom: 1rem; }
+.who img { border-radius: 50%; border: 2px solid var(--line); flex-shrink: 0; }
+.who h1 { color: var(--acc); }
+.who p { margin: 0; }
+.ai-note { font-size: 12px; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: .75rem; }
+.card { border: 1px solid var(--line); border-radius: 4px; padding: .75rem; display: flex; flex-direction: column; gap: .25rem; color: var(--fg); }
+.card:hover, .card:focus-visible { border-color: var(--acc); text-decoration: none; }
+
+.timeline { list-style: none; padding: 0; }
+.timeline > li { border-left: 2px solid var(--line); padding: .1rem 0 .1rem 1rem; margin-bottom: 1rem; }
+.timeline h2 { font-size: 1.05rem; margin: 0; }
+.timeline p { margin: 0; }
+.timeline ul { margin: .4rem 0 0; padding-left: 1.1rem; }
+
+.tag { display: inline-block; background: var(--tag); color: var(--acc); border-radius: 3px; padding: 0 .45rem; font-size: 12px; margin: 0 .3rem .3rem 0; font-weight: normal; vertical-align: middle; }
+.tag.warn { color: var(--warn); }
+.crumb { font-size: 13px; margin: 0; }
+
+/* rendered READMEs */
+.readme { overflow-wrap: anywhere; }
+.readme img { max-width: 100%; height: auto; }
+.readme h1, .readme h2, .readme h3 { color: var(--acc); margin: 1.5rem 0 .5rem; }
+.readme h1 { font-size: 1.35rem; }
+.readme h2 { font-size: 1.15rem; }
+.readme h3 { font-size: 1rem; }
+.readme .markdown-heading { position: relative; }
+.readme .anchor { display: none; }
+.readme pre, .readme code { background: var(--bg-2); border: 1px solid var(--line); border-radius: 3px; font-family: var(--mono); }
+.readme code { padding: 0 .25rem; font-size: 13px; }
+.readme pre { padding: .75rem; overflow-x: auto; }
+.readme pre code { border: 0; padding: 0; }
+.readme table { border-collapse: collapse; display: block; overflow-x: auto; }
+.readme th, .readme td { border: 1px solid var(--line); padding: .3rem .6rem; }
+.readme blockquote { border-left: 3px solid var(--line); margin: 0; padding-left: 1rem; color: var(--dim); }
+.readme svg { display: none; }
+
+@media (max-width: 800px) {
+  body { display: block; }
+  #menu { position: sticky; top: .5rem; margin: .5rem 1rem 0; z-index: 2; }
+  #side { position: static; height: auto; border-right: 0; border-bottom: 1px solid var(--line); }
+  .js #side { display: none; }
+  .js #side.open { display: block; }
+  main { padding: 1.5rem 1rem 3rem; }
+  .who { flex-direction: column; align-items: flex-start; }
+}
+@media (min-width: 801px) { #menu { display: none; } }
