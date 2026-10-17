@@ -57,6 +57,21 @@ main { padding: 2rem 2.5rem 4rem; max-width: 60rem; }
 .prompt { color: var(--dim); margin: 2rem 0 .5rem; }
 .prompt:first-child { margin-top: 0; }
 
+/* terminal intro, driven by site.js */
+.pending { opacity: 0; }
+.revealed { opacity: 1; transition: opacity .35s; }
+.typing {
+  display: inline-block; overflow: hidden; white-space: nowrap; vertical-align: bottom;
+  width: 0; animation: type calc(var(--n) * 55ms) steps(var(--n), end) forwards;
+}
+@keyframes type { to { width: calc(var(--n) * 1ch); } }
+.cursor {
+  display: inline-block; width: .6em; height: 1.1em; background: var(--acc);
+  vertical-align: text-bottom; animation: blink 1s step-end infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .cursor { animation: none; } }
+
 .who { display: flex; gap: 1.25rem; align-items: center; margin-bottom: 1rem; }
 .who img { border-radius: 50%; border: 2px solid var(--line); flex-shrink: 0; }
 .who h1 { color: var(--acc); }

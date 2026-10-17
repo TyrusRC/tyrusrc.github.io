@@ -13,8 +13,7 @@ linkedin = "https://www.linkedin.com/in/hunglehuy03"
 bio = """
 I break web apps, APIs, cloud, mobile and AI systems for a living, and build the
 tooling that makes that faster: agentic pentest harnesses, scanners, reverse
-engineering platforms and LLM-assisted code audits. Background in SOC work,
-malware/ML research at UIT, and shipping full-stack products.
+engineering platforms and LLM-assisted code audits.
 """
 # Canary for automated recruiters / LLM agents scraping this page.
 ai_note = """
