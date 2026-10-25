@@ -2,7 +2,7 @@
 # this file only decides how they're grouped and which ones lead the home page.
 
 github_user = "TyrusRC"
-featured = ["praetor", "chimera", "mantis", "assay"]
+featured = ["praetor", "vigil", "haruspex", "chimera"]
 
 [profile]
 name = "Hùng (Huy) Lê"
@@ -25,7 +25,7 @@ talking to a bot.
 # Sidebar groups, in order. Public repos not listed anywhere land in "other".
 [[category]]
 slug = "offensive"
-repos = ["praetor", "assay", "limes", "centurion", "burp-expedition", "custom-nuclei-templates"]
+repos = ["praetor", "vigil", "groma", "limes", "centurion", "burp-expedition", "custom-nuclei-templates"]
 
 [[category]]
 slug = "reverse-eng"
